@@ -60,7 +60,7 @@ $time = isset($_GET['time']) ? date("H:i", strtotime($_GET['time'])) : "";
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center justify-content-center">
 
-        <div class="card">
+        <div class="card overflow-x-auto">
             <h5 class="card-header">Train Schedules</h5>
             <div class="card-body">
                 <h5 class="card-title">Find Train</h5>
@@ -85,7 +85,7 @@ $time = isset($_GET['time']) ? date("H:i", strtotime($_GET['time'])) : "";
                         </div>
                     </form>
                     <hr>
-                    <table class="table table-hover table-striped table-bordered">
+                    <table class="table table-hover table-striped table-bordered overflow-x-auto">
                         <colgroup>
                             <col width="15%">
                             <col width="15%">
@@ -171,7 +171,7 @@ $time = isset($_GET['time']) ? date("H:i", strtotime($_GET['time'])) : "";
                                         </div>
                                     </td>
                                     <td class="px-1" align="center">
-                                        <a href="./?page=reserve&sid=<?= $row['id'] ?>"
+                                        <a href="./reserve.php?sid=<?= $row['id'] ?>"
                                             class="btn btn-flat btn-primary btn-sm">Book <i
                                                 class="fa fa-angle-right"></i></a>
                                     </td>
@@ -180,7 +180,6 @@ $time = isset($_GET['time']) ? date("H:i", strtotime($_GET['time'])) : "";
                         </tbody>
                     </table>
                 </fieldset>
-
             </div>
         </div>
 
@@ -193,14 +192,7 @@ $time = isset($_GET['time']) ? date("H:i", strtotime($_GET['time'])) : "";
             <div class="copyright-wrap d-md-flex py-4">
                 <div class="me-md-auto text-center text-md-start">
                     <div class="copyright">
-                        &copy; Copyright <strong><span>Techie</span></strong>. All Rights Reserved
-                    </div>
-                    <div class="credits">
-                        <!-- All the links in the footer should remain intact. -->
-                        <!-- You can delete the links only if you purchased the pro version. -->
-                        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/techie-free-skin-bootstrap-3/ -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                        &copy; Copyright <strong><span>MagLev</span></strong>. All Rights Reserved
                     </div>
                 </div>
             </div>
@@ -227,3 +219,12 @@ $time = isset($_GET['time']) ? date("H:i", strtotime($_GET['time'])) : "";
 </body>
 
 </html>
+
+<script>
+    $(function(){
+        $('#filter-schedule').submit(function(e){
+            e.preventDefault();
+            location.href = "./?page=schedules&"+$(this).serialize();
+        })
+    })
+</script>
